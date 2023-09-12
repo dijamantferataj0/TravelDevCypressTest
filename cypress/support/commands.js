@@ -26,7 +26,7 @@
 
 /// <reference types="Cypress" />
 
-Cypress.Commands.add("GetSSOIframe", (iframe) =>
+Cypress.Commands.add("GetIframe", (iframe) =>
 {
     return cy.get(iframe)
               .its("0.contentDocument")
@@ -35,7 +35,7 @@ Cypress.Commands.add("GetSSOIframe", (iframe) =>
 
 Cypress.Commands.add("GetIframeBody", (iframeSelector) => 
 {
-  return GetSSOIframe(iframeSelector)
+  return cy.GetIframe(iframeSelector)
             .its("body")
             .should("not.be.undefined")
             .then(cy.wrap)

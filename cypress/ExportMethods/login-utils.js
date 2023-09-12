@@ -2,7 +2,7 @@ export const PortaLogin = () =>
 {
     cy.fixture("MyData.json").then((MyData)=>
     {   
-        cy.visit(MyData.baseUrl)
+        cy.visit(MyData.baseDevUrl)
         cy.title().should("eq", MyData.pageTitle)
         cy.location("protocol").should("eq", "https:")
         cy.get("button").contains("Kyçu").click()
@@ -18,16 +18,17 @@ export const OldSSOLogin = () =>
 {
     cy.fixture("MyData.json").then((MyData) =>
     {
-        cy.visit("travel.gjirafa.com")
+        cy.visit(MyData.baseUrl)
         cy.get("button").contains("Kyçu").click()
-        cy.pause()
         cy.GetIframeBody("#ssoPopup_iframe").should("be.visible")
+        cy.wait(1000)
         cy.GetIframeBody("#ssoPopup_iframe").within(() => 
         {
             cy.get("#Username").type(MyData.email)
             cy.get("#Password").type(MyData.password)
             cy.get("#event-btn").click()
-        });
+        })
+        cy.wait(5000)
     })
     
 }
