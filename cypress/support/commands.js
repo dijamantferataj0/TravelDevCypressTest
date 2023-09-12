@@ -23,3 +23,21 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+/// <reference types="Cypress" />
+
+Cypress.Commands.add("GetSSOIframe", (iframe) =>
+{
+    return cy.get(iframe)
+              .its("0.contentDocument.body")
+              .should("exist")
+})
+
+Cypress.Commands.add("GetIframeBody", (iframeSelector) => 
+{
+  return GetSSOIframe(iframeSelector)
+            .its("body")
+            .should("not.be.undefined")
+            .then(cy.wrap)
+})
+
