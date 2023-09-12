@@ -29,7 +29,7 @@
 Cypress.Commands.add("GetSSOIframe", (iframe) =>
 {
     return cy.get(iframe)
-              .its("0.contentDocument.body")
+              .its("0.contentDocument")
               .should("exist")
 })
 
