@@ -4,12 +4,19 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "cypress run --browser chrome --headed",
+    "RoundTrip": "cypress run --browser chrome --headed --spec cypress/e2e/TravelProd/ReserveRoundTrip.cy.js",
+    "TravelProd": "cypress run --browser chrome --headed --spec cypress/e2e/TravelProd/*.cy.js",
+    "TravelDev": "cypress run --browser chrome --headed --spec cypress/e2e/TravelDev/*.cy.js",
+    "OneWay": "cypress run --browser chrome --headed --spec cypress/e2e/TravelProd/ReserveTicket.cy.js",
+    "RoundTripDev": "cypress run --browser chrome --headed --spec cypress/e2e/TravelDev/ReserveRoundTrip.cy.js",
+    "OneWayDev": "cypress run --browser chrome --headed --spec cypress/e2e/TravelDev/ReserveTicket.cy.js",
+    "open": "cypress open"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "cypress": "^13.1.0"
+  "devDependencies": {
+    "cypress": "^13.2.0"
   }
 }

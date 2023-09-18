@@ -1,12 +1,16 @@
-import { PortaLogin } from "../../ExportMethods/login-utils";
+import { PortaLogin } from "../../ExportMethods/login-utils"
 
-describe("TravelDevTest", () =>
+describe("TravelProdTest", () => 
 {
-    before(()=> 
+    before(() =>
     {
+        cy.fixture("MyData.json").then((MyData) =>
+        {
+            cy.visit(MyData.baseDevUrl)
+        })
         PortaLogin()
     })
-
+    
     it("SearchPrishtinaToTirana", () => 
     {
         cy.on("uncaught:exception", (e, runnable) => 
@@ -17,12 +21,13 @@ describe("TravelDevTest", () =>
             return false;
         });
 
-        cy.get("#from").type("Prishtin")            
+        cy.get("#from").clear().type("Prishtin")            
         cy.contains("Prishtinë, Kosovë").click()
-        cy.get("#to").type("Tiran")
+        cy.get("#to").clear().type("Tiran")
         cy.contains("Tiranë, Shqipëri").click()
         cy.get("button.bg-primary[type='submit']").click()
     })
+
 
     it("ReserveTicket", () =>
     {
@@ -31,9 +36,11 @@ describe("TravelDevTest", () =>
             cy.get("button.bg-primary[type='button']").contains("Blej biletën").click()
             cy.get("input[name='phoneNumber']").clear().type(MyData.phoneNumber)
             cy.get("button.bg-primary[type='button']").contains("Vazhdo").click()
+            cy.get("button[type='submit']").click()
+            cy.location("protocol").should("eq", "https:")
         })
-    })
 
+    })
 
     after(() => 
     {
@@ -41,5 +48,4 @@ describe("TravelDevTest", () =>
         cy.clearAllLocalStorage()
         cy.clearAllSessionStorage()
     })
-    
-}) 
+})

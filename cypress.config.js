@@ -1,10 +1,13 @@
 const { defineConfig } = require("cypress");
 
-module.exports = defineConfig({
+module.exports = defineConfig(
+{
   projectId: 'apcxgn',
-  e2e: {
+  e2e: 
+  {
     testIsolation: false,
     experimentalRunAllSpecs: true,
+    baseUrl: "https://travel-dev.gjirafa.com/sq"
     
   },
 });

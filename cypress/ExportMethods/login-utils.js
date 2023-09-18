@@ -2,7 +2,6 @@ export const PortaLogin = () =>
 {
     cy.fixture("MyData.json").then((MyData)=>
     {   
-        cy.visit(MyData.baseDevUrl)
         cy.title().should("eq", MyData.pageTitle)
         cy.location("protocol").should("eq", "https:")
         cy.get("button").contains("Kyçu").click()
@@ -18,7 +17,6 @@ export const OldSSOLogin = () =>
 {
     cy.fixture("MyData.json").then((MyData) =>
     {
-        cy.visit(MyData.baseUrl)
         cy.get("button").contains("Kyçu").click()
         cy.GetIframeBody("#ssoPopup_iframe").should("be.visible")
         cy.wait(1000)

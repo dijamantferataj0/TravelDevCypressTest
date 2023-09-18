@@ -1,8 +1,15 @@
 {
-  "email": "test.acc1597532486@gmail.com",
-  "password": "passistakeN*1",
+  "email": "filanfistekutesting@gmail.com",
+  "password": "filanTesting!1",
   "pageTitle": "Kërko & Rezervo biletat e autobusit në Kosovë Maqedoni te veriut dhe Shqipëri | GjirafaTravel",
-  "baseDevUrl": "travel-dev.gjirafa.com",
-  "baseUrl": "travel.gjirafa.com",
-  "phoneNumber": "44000000"
+  "paymentPageTitle": "Vendos informacionin e kartës për pagesë",
+  "baseDevUrl": "travel-dev.gjirafa.com/sq",
+  "baseUrl": "travel.gjirafa.com/sq",
+  "phoneNumber": "44000000",
+  "successStripeMasterCard": "5555555555554444444444444444",
+  "successStripeVisaCard": "4242424242424242424242424424",
+  "failStripeVisaCard": "5555555555554444444444444444",
+  "failRBKOCard": "4242424242424242",
+  "failRBKOExpDate": "0444",
+  "failRBKOCVC": "424"
 }
